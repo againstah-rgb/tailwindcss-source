@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["ESNext"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "declaration": true,
+    "noEmitOnError": true,
+    "sourceMap": false,
+    "esModuleInterop": true
+  }
+}

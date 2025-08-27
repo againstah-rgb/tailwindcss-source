@@ -1,0 +1,48 @@
+{
+  "name": "tailwindcss-source",
+  "version": "0.0.1",
+  "packageManager": "pnpm@10.15.0",
+  "description": "A TailwindCss v4 `@source` plugin for monorepo projects.",
+  "author": "AgainstEcho",
+  "license": "MIT",
+  "homepage": "https://github.com/AgainstEcho/tailwindcss-source#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgainstEcho/tailwindcss-source.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AgainstEcho/tailwindcss-source/issues"
+  },
+  "keywords": [
+    "tailwindcss",
+    "source",
+    "vite",
+    "vite-plugin"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "pnpm unbuild --stub",
+    "build": "pnpm unbuild",
+    "prepublishOnly": "npm run build",
+    "prepack": "pnpm unbuild",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.2.1",
+    "@tailwindcss/vite": "^4.1.12",
+    "eslint": "^9.34.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "unbuild": "^3.6.1",
+    "vite": "^6.3.5"
+  }
+}
