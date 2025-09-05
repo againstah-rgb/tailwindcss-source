@@ -6,9 +6,5 @@ export default defineBuildConfig({
   ],
   declaration: true,
   clean: true,
-  externals: ['vite', 'typescript'],
-  rollup: {
-    emitCJS: true,
-    inlineDependencies: true,
-  },
+  externals: ['vite', 'typescript', '@manypkg/get-packages'],
 })

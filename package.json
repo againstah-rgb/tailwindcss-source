@@ -1,17 +1,17 @@
 {
   "name": "tailwindcss-source",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@10.15.0",
   "description": "A TailwindCss v4 `@source` plugin for monorepo projects.",
   "author": "AgainstEcho",
   "license": "MIT",
-  "homepage": "https://github.com/AgainstEcho/tailwindcss-source#readme",
+  "homepage": "https://github.com/againstah-rgb/tailwindcss-source#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AgainstEcho/tailwindcss-source.git"
+    "url": "git+https://github.com/againstah-rgb/tailwindcss-source.git"
   },
   "bugs": {
-    "url": "https://github.com/AgainstEcho/tailwindcss-source/issues"
+    "url": "https://github.com/againstah-rgb/tailwindcss-source/issues"
   },
   "keywords": [
     "tailwindcss",
@@ -30,19 +30,24 @@
   ],
   "scripts": {
     "dev": "pnpm unbuild --stub",
-    "build": "pnpm unbuild",
+    "build": "unbuild",
     "prepublishOnly": "npm run build",
     "prepack": "pnpm unbuild",
+    "clean": "pnpx rimraf -g **/node_modules pnpm-lock.yaml",
+    "reinstall": "pnpm clean && pnpm install",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
+  "peerDependencies": {
+    "vite": ">=6.0.0"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^5.2.1",
+    "@manypkg/get-packages": "^3.1.0",
     "@tailwindcss/vite": "^4.1.12",
+    "@types/node": "^24.3.1",
     "eslint": "^9.34.0",
-    "tsx": "^4.20.5",
     "typescript": "^5.9.2",
-    "unbuild": "^3.6.1",
-    "vite": "^6.3.5"
+    "unbuild": "^3.6.1"
   }
 }

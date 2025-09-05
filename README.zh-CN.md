@@ -1,18 +1,18 @@
 <h1 align="center">tailwindcss-source</h1>
 
-<p align="center">A TailwindCss v4 <i><b>@source</b></i> plugin for monorepo projects.</p>
+<p align="center">一个用于 monorepo 项目的 TailwindCss <i><b>@source</b></i> 插件。</p>
 
-**English** | [中文](./README.zh-CN.md)
+**中文** | [English](./README.md)
 
-## Installation
+## 安装
 
 ```sh
 pnpm add -D tailwindcss-source
 ```
 
-## Usage
+## 使用
 
-In `vite.config.ts`:
+在 `vite.config.ts` 中：
 
 ```ts
 import tailwindcss from '@tailwindcss/vite'
@@ -21,7 +21,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [
-    tailwindcssSource({ // Must be before tailwindcss
+    tailwindcssSource({ // 必须在 tailwindcss 之前
       entry: '...',
       sources: ['...']
     }),
@@ -30,7 +30,7 @@ export default defineConfig({
 })
 ```
 
-## Parameter Description
+## 参数说明
 
 `tailwindcssSource(option: Option)`
 
@@ -38,18 +38,18 @@ export default defineConfig({
 
 #### `entry` - string
 
-The entry file of Tailwind CSS, that is, the file where `@import "tailwindcss"` is located.
+TailwindCss 入口文件，即 `@import "tailwindcss"` 所在的文件。
 
-example:
+示例：
 ```ts
 'src/styles/index.css'
 ```
 
 #### `sources` - Source[]
 
-Configuration of the source file paths that need to be detected.
+需要检测的源文件路径配置。
 
-example:
+示例：
 ```ts
 [
   {
