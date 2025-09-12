@@ -1,7 +1,6 @@
 {
   "name": "tailwindcss-source",
-  "version": "0.0.3",
-  "packageManager": "pnpm@10.15.0",
+  "version": "0.0.4",
   "description": "A TailwindCss v4 `@source` plugin for monorepo projects.",
   "author": "AgainstEcho",
   "license": "MIT",

@@ -12,6 +12,8 @@ interface Source {
 export interface Option {
   /** TailwindCss entry file, that is, the file where `@import "tailwindcss"` is located. */
   entry: string
+  /** If your `@import "tailwindcss"` is in a sub - package, then the value is the name of the sub - package. */
+  name?: string
   /** source path configuration */
   sources?: Source[]
 }
@@ -28,7 +30,7 @@ const { packages } = getPackagesSync(process.cwd())
  * @param option configuration options
  */
 export function tailwindcssSource(option: Option): PluginOption {
-  const { entry, sources } = option || {}
+  const { entry, sources, name } = option || {}
   if (!entry) {
     throw new Error(`${PLUGIN_NAME}: 'entry' is required`)
   }
@@ -37,7 +39,17 @@ export function tailwindcssSource(option: Option): PluginOption {
     throw new Error(`${PLUGIN_NAME}: 'sources' is required`)
   }
 
-  const entryPath = normalizePath(path.resolve(entry))
+  let entryPath = ''
+
+  if (name) {
+    const find = packages.find(item => item.packageJson.name === name)
+    if (find) {
+      entryPath = normalizePath(path.join(find.dir, entry))
+    }
+  }
+  else {
+    entryPath = normalizePath(path.resolve(entry))
+  }
 
   return {
     name: PLUGIN_NAME,
